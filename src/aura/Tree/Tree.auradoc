@@ -1,0 +1,63 @@
+<aura:documentation>
+	<aura:description>
+        <p>A <code>ui_tree:Tree</code> component that displays a tree.</p>
+        
+        <h4>Configuration</h4>
+        <p>This component is configured via a JSON object placed in its <code>config</code> attribute.</p>
+        <p>The following properties are supported:</p>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                <th>Default</th>
+            </tr>
+            <tr>
+                <td><code>labelProperties</code></td>
+                <td>[String]</td>
+                <td>Properties used for retrieving node/leaf label. The first available property in the list will be used.</td>
+                <td>['Name']</td>
+            </tr>
+            <tr>
+                <td><code>expandProperties</code></td>
+                <td>[String]</td>
+                <td>Properties used for retrieving node children. No children will be fetched by default.</td>
+                <td>[]</td>
+            </tr>
+            <tr>
+                <td><code>expandLevel</code></td>
+                <td>Integer</td>
+                <td>Number of tree levels expanded by default.</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td><code>isSelectable</code></td>
+                <td>Boolean</td>
+                <td>Whether this tree supports user selection. If enabled, selection is captured by a <code>ui_tree:TreeSelectionEvent</code> event.</td>
+                <td>false</td>
+            </tr>
+            <tr>
+                <td><code>isNodeSelectionEnabled</code></td>
+                <td>Boolean</td>
+                <td>Whether tree nodes can be selected. If false, only leaves can be selected.</td>
+                <td>false</td>
+            </tr>
+        </table>
+        
+        <h4>Sample code</h4>
+        <p>The following example displays a tree containing accounts and their contacts.
+        Data is loaded by the <code>doInit</code> controller method (not shown) and stored in the <code>treeItems</code> attribute.
+        Tree selection is captured by the <code>TreeSelectionEvent</code> event and handled by the <code>handleTreeSelection</code> controller method (not shown).</p>
+        
+        
+        <pre>&lt;aura:attribute name="treeHeader" type="String" default="Accounts &amp; Contacts"/&gt;
+&lt;aura:attribute name="treeItems" type="List"/&gt;
+&lt;aura:attribute name="treeConfig" type="Map" default="{'labelProperties': ['Name'], 'expandProperties': ['Contacts'], 'isSelectable': true, 'isNodeSelectionEnabled': true, 'expandLevel': 1}" /&gt;
+
+&lt;aura:handler name="init" value="{!this}" action="{!c.doInit}" /&gt;
+&lt;aura:handler name="treeSelectionEvent" event="c:TreeSelectionEvent" action="{!c.handleTreeSelection}"/&gt;
+ 
+&lt;ui_tree:Tree header="{!v.treeHeader}" items="{!v.treeItems}" config="{!v.treeConfig}" /&gt;</pre>
+        
+    </aura:description>
+</aura:documentation>

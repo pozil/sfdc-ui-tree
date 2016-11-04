@@ -1,0 +1,3 @@
+<aura:event type="COMPONENT" description="Event thrown when a tree node/leaf is selected">
+    <aura:attribute name="selection" type="Object" description="Data associated with the selected tree node/leaf"/>
+</aura:event>

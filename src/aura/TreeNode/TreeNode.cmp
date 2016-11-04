@@ -1,0 +1,42 @@
+<aura:component >
+    <aura:attribute name="item" type="Object" required="true" />
+    <aura:attribute name="level" type="Integer" required="true" />
+    <aura:attribute name="config" type="Map" default="{}" />
+    
+    <aura:attribute name="label" type="String" access="private" />
+    <aura:attribute name="children" type="List" access="private" />
+    <aura:attribute name="toggleExpandIcon" type="String" access="private" default="utility:chevrondown"/>
+    
+    <aura:attribute name="onToggleExpand" type="Aura.Action" access="private" default="{!c.onToggleExpand}" />
+    <aura:attribute name="onSelectNode" type="Aura.Action" access="private" default="{!c.onSelectNode}" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:registerEvent name="treeSelectionEvent" type="c:TreeSelectionEvent"/>
+    
+    <li role="treeitem" aria-level="{!v.level}">
+        
+        <!-- Node/leaf -->
+        <div class="slds-tree__item" onclick="{!v.onSelectNode}">
+            <aura:if isTrue="{!!empty(v.children)}">
+                <button class="slds-button slds-m-right--x-small" onclick="{!v.onToggleExpand}">
+                    <lightning:icon iconName="{!v.toggleExpandIcon}" size="xx-small" class="slds-button__icon slds-button__icon--small" />
+                </button>
+                <aura:set attribute="else">
+                    <span class="spacer"></span>
+                </aura:set>
+            </aura:if>
+            <a href="javascript:void(0);" tabindex="-1" role="presentation" class="slds-truncate">{!v.label}</a>
+        </div>
+        
+        <!-- Sub tree -->
+		<aura:if isTrue="{!!empty(v.children)}">
+            <ul aura:id="subTree" class="slds-tree" role="tree" aria-labelledby="treeheading" aria-activedescendant="tree0-node1">
+                <aura:iteration items="{!v.children}" var="childItem">
+                    <c:TreeNode item="{!childItem}" level="{!v.level +1}" config="{!v.config}" />
+                </aura:iteration>
+            </ul>
+		</aura:if>
+        
+    </li>
+</aura:component>

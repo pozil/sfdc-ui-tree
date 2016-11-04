@@ -1,0 +1,6 @@
+<aura:documentation>
+	<aura:description>
+        <p>A <code>ui_tree:TreeNode</code> component represents a node or a leaf of a <code>ui_tree:Tree</code>.</p>
+        <p>This component can only be used in a <code>ui_tree:Tree</code>.</p>
+    </aura:description>
+</aura:documentation>

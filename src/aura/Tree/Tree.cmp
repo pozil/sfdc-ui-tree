@@ -1,0 +1,20 @@
+<aura:component >
+    <aura:attribute name="header" type="String" default="" description="An optional text header"/>
+    <aura:attribute name="items" type="List" required="true" description="The tree data"/>
+    <aura:attribute name="config" type="Object" default="{}" description="An optional tree configuration, see 'configuration' under component description for more details."/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <div class="slds-tree_container" role="application">
+        
+        <aura:if isTrue="{!!empty(v.header)}">
+        	<h4 class="slds-text-heading--label" id="treeheading">{!v.header}</h4>
+		</aura:if>
+
+        <ul class="slds-tree" role="tree" aria-labelledby="treeheading" aria-activedescendant="tree0-node1">
+            <aura:iteration items="{!v.items}" var="childItem">
+                <c:TreeNode item="{!childItem}" level="1" config="{!v.config}"/>
+            </aura:iteration>
+        </ul>
+    </div>
+</aura:component>
