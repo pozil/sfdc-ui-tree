@@ -121,13 +121,6 @@ Check out the [sample application](https://github.com/pozil/sfdc-ui-tree-sample)
 
 The following example displays a tree containing accounts and their contacts.
 
-Data is loaded by the <code>doInit</code> controller method (not shown) and stored in the <code>treeItems</code> attribute.
-The <code>labelProperties</code> configuration searches for "Name" properties in the <code>treeItems</code> object to display labels. The <code>expandProperties</code> configuration searches for "Contacts" properties to fetch node children.
-
-The tree supports user selection for both nodes and leaves. Selection is captured by the <code>TreeSelectionEvent</code> event and handled by the <code>handleTreeSelection</code> controller method (not shown).
-
-In this example, the tree will be collapsed by default thanks to the <code>expandLevel</code> configuration.
-
 ``` xml
 <aura:attribute name="treeHeader" type="String" default="Accounts &amp; Contacts"/>
 <aura:attribute name="treeItems" type="List"/>
@@ -138,3 +131,10 @@ In this example, the tree will be collapsed by default thanks to the <code>expan
 
 <ui_tree:Tree header="{!v.treeHeader}" items="{!v.treeItems}" config="{!v.treeConfig}" />
 ```
+
+Data is loaded by the <code>doInit</code> controller method (not shown) and stored in the <code>treeItems</code> attribute.
+The <code>labelProperties</code> configuration searches for "Name" properties in the <code>treeItems</code> object to display labels. The <code>expandProperties</code> configuration searches for "Contacts" properties to fetch node children.
+
+The tree supports user selection for both nodes and leaves. Selection is captured by the <code>TreeSelectionEvent</code> event and handled by the <code>handleTreeSelection</code> controller method (not shown).
+
+In this example, the tree will be collapsed by default thanks to the <code>expandLevel</code> configuration.
