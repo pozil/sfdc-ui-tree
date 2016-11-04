@@ -105,9 +105,14 @@ The event has the following attribute:
 </table>
 
 ## Sample code
-<p>The following example displays a tree containing accounts and their contacts.
+The following example displays a tree containing accounts and their contacts.
+
 Data is loaded by the <code>doInit</code> controller method (not shown) and stored in the <code>treeItems</code> attribute.
-Tree selection is captured by the <code>TreeSelectionEvent</code> event and handled by the <code>handleTreeSelection</code> controller method (not shown).</p>
+The <code>labelProperties</code> configuration searches for "Name" properties in the <code>treeItems</code> object to display labels. The <code>expandProperties</code> configuration searches for "Contacts" properties to fetch node children.
+
+The tree supports user selection for both nodes and leaves. Selection is captured by the <code>TreeSelectionEvent</code> event and handled by the <code>handleTreeSelection</code> controller method (not shown).
+
+In this example, the tree will be collapsed by default thanks to the <code>expandLevel</code> configuration.
 
 <pre>&lt;aura:attribute name="treeHeader" type="String" default="Accounts &amp; Contacts"/&gt;
 &lt;aura:attribute name="treeItems" type="List"/&gt;
