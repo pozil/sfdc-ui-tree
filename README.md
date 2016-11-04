@@ -104,7 +104,9 @@ The event has the following attribute:
     </tr>
 </table>
 
-## Sample code
+# Sample application & code
+Check out the [sample application](https://github.com/pozil/sfdc-ui-tree-sample) or this simplified code sample.
+
 The following example displays a tree containing accounts and their contacts.
 
 Data is loaded by the <code>doInit</code> controller method (not shown) and stored in the <code>treeItems</code> attribute.
