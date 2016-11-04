@@ -14,9 +14,10 @@
 This is a generic tree component built using Salesforce Lightning.<br/>
 This component is built with [SLDS](https://www.lightningdesignsystem.com/) style and does not rely on third party libraries.
 
-* Features
+<b>Features</b>
+
 The Lightning Tree component provides the following features:
-- multi-level tree (not limited to a single level)
+- multi-level tree
 - selectable nodes/leaves handled by a lightning event
 - configurable expansion/label properties that allow to represent any type of objects
 - configurable default expansion level
