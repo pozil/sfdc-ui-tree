@@ -4,6 +4,14 @@
 
 # Salesforce Lightning Tree Component
 
+**Table of Content**
+- [About](#about)
+- [Features](#features)
+- [Documentation](#documentation)
+  - ui_tree:Tree
+  - ui_tree:TreeSelectionEvent
+- [Sample application & code](#examples)
+
 <img src="screenshots/example-app.png" width="300" align="right"/>
 
 ## About
@@ -116,11 +124,13 @@ The tree supports user selection for both nodes and leaves. Selection is capture
 
 In this example, the tree will be collapsed by default thanks to the <code>expandLevel</code> configuration.
 
-<pre>&lt;aura:attribute name="treeHeader" type="String" default="Accounts &amp; Contacts"/&gt;
-&lt;aura:attribute name="treeItems" type="List"/&gt;
-&lt;aura:attribute name="treeConfig" type="Map" default="{'labelProperties': ['Name'], 'expandProperties': ['Contacts'], 'isSelectable': true, 'isNodeSelectionEnabled': true, 'expandLevel': 1}" /&gt;
+``` xml
+<aura:attribute name="treeHeader" type="String" default="Accounts &amp; Contacts"/>
+<aura:attribute name="treeItems" type="List"/>
+<aura:attribute name="treeConfig" type="Map" default="{'labelProperties': ['Name'], 'expandProperties': ['Contacts'], 'isSelectable': true, 'isNodeSelectionEnabled': true, 'expandLevel': 1}" />
 
-&lt;aura:handler name="init" value="{!this}" action="{!c.doInit}" /&gt;
-&lt;aura:handler name="treeSelectionEvent" event="c:TreeSelectionEvent" action="{!c.handleTreeSelection}"/&gt;
- 
-&lt;ui_tree:Tree header="{!v.treeHeader}" items="{!v.treeItems}" config="{!v.treeConfig}" /&gt;</pre>
+<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+<aura:handler name="treeSelectionEvent" event="c:TreeSelectionEvent" action="{!c.handleTreeSelection}"/>
+
+<ui_tree:Tree header="{!v.treeHeader}" items="{!v.treeItems}" config="{!v.treeConfig}" />
+```
