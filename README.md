@@ -128,7 +128,7 @@ The following example displays a tree containing accounts and their contacts.
 <aura:attribute name="treeConfig" type="Map" default="{'labelProperties': ['Name'], 'expandProperties': ['Contacts'], 'isSelectable': true, 'isNodeSelectionEnabled': true, 'expandLevel': 1}" />
 
 <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
-<aura:handler name="treeSelectionEvent" event="c:TreeSelectionEvent" action="{!c.handleTreeSelection}"/>
+<aura:handler name="treeSelectionEvent" event="ui_tree:TreeSelectionEvent" action="{!c.handleTreeSelection}"/>
 
 <ui_tree:Tree header="{!v.treeHeader}" items="{!v.treeItems}" config="{!v.treeConfig}" />
 ```
