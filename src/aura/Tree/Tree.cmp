@@ -1,7 +1,7 @@
-<aura:component >
-    <aura:attribute name="header" type="String" default="" description="An optional text header"/>
-    <aura:attribute name="items" type="List" required="true" description="The tree data"/>
-    <aura:attribute name="config" type="Object" default="{}" description="An optional tree configuration, see 'configuration' under component description for more details."/>
+<aura:component access="global">
+    <aura:attribute name="header" type="String" access="global" default="" description="An optional text header"/>
+    <aura:attribute name="items" type="List" access="global" required="true" description="The tree data"/>
+    <aura:attribute name="config" type="Object" access="global" default="{}" description="An optional tree configuration, see 'configuration' under component description for more details."/>
     
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     
