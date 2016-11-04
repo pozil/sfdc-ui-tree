@@ -1,6 +1,5 @@
-<a href="https://login.salesforce.com/packaging/installPackage.apexp?p0=04t0Y000000Pi6b">
-  <img src="gfx/btn-install.png" width="100" alt="Install" align="left">
-</a>
+<a href="https://login.salesforce.com/packaging/installPackage.apexp?p0=04t0Y000000Pi6b"><img src="gfx/btn-install.png" width="100" alt="Install" align="right"></a>
+
 # Salesforce Lightning Tree Component
 
 <img src="screenshots/example-app.png" width="300" align="right"/>
