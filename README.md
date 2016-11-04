@@ -1,18 +1,119 @@
-<a href="https://login.salesforce.com/packaging/installPackage.apexp?p0=04t0Y000000Pi6b"><img src="gfx/btn-install.png" width="100" alt="Install"></a>
+<a href="https://login.salesforce.com/packaging/installPackage.apexp?p0=04t0Y000000Pi6b">
+  <img src="gfx/btn-install.png" width="100" alt="Install">
+</a>
 
 # Salesforce Lightning Tree Component
+
 <img src="screenshots/example-app.png" width="300" align="right"/>
 
 ## About
 This is a generic tree component built using Salesforce Lightning.<br/>
 This component is built with [SLDS](https://www.lightningdesignsystem.com/) style and does not rely on third party libraries.
 
-Component documentation can be accessed through the AURA documentation using the following URL with your domain:<br/>
-https://<b>&lt;YOUR_DOMAIN_HERE&gt;</b>.lightning.force.com/auradocs/reference.app#reference?descriptor=ui_tree:Tree&defType=component
-
-## Features:
+## Features
 The Lightning Tree component provides the following features:
 - multi-level tree (not limited to a single level)
 - selectable nodes/leaves handled by a lightning event
 - configurable expansion/label properties that allow to represent any type of objects
 - configurable default expansion level
+
+## Documentation
+
+### ui_tree:Tree
+The Lightning Tree component is invoked as a <code>ui_tree:Tree</code> component with the following attributes:
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Required</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><code>header</code></td>
+    <td>String</td>
+    <td>No</td>
+    <td>An optional text header</td>
+  </tr>
+  <tr>
+    <td><code>items</code></td>
+    <td>List</td>
+    <td>Yes</td>
+    <td>The tree data</td>
+  </tr>
+  <tr>
+    <td><code>config</code></td>
+    <td>Object</td>
+    <td>No</td>
+    <td>An optional tree configuration, see below for more details</td>
+  </tr>
+</table>
+
+<p>This component is configured via a JSON object placed in its <code>config</code> attribute. It supports the following properties:</p>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+    </tr>
+    <tr>
+        <td><code>labelProperties</code></td>
+        <td>[String]</td>
+        <td>Properties used for retrieving node/leaf label. The first available property in the list will be used.</td>
+        <td>['Name']</td>
+    </tr>
+    <tr>
+        <td><code>expandProperties</code></td>
+        <td>[String]</td>
+        <td>Properties used for retrieving node children. No children will be fetched by default.</td>
+        <td>[]</td>
+    </tr>
+    <tr>
+        <td><code>expandLevel</code></td>
+        <td>Integer</td>
+        <td>Number of tree levels expanded by default.</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td><code>isSelectable</code></td>
+        <td>Boolean</td>
+        <td>Whether this tree supports user selection. If enabled, selection is captured by a <code>ui_tree:TreeSelectionEvent</code> event. See below for more details on this event.</td>
+        <td>false</td>
+    </tr>
+    <tr>
+        <td><code>isNodeSelectionEnabled</code></td>
+        <td>Boolean</td>
+        <td>Whether tree nodes can be selected. If false, only leaves can be selected.</td>
+        <td>false</td>
+    </tr>
+</table>
+
+## ui_tree:TreeSelectionEvent
+When selection is allowed by the <code>config</code> attribute of the <code>ui_tree:Tree</code> component, a <code>ui_tree:TreeSelectionEvent</code> Lightning event will be thrown when the user selects a tree node or leaf.
+The event has the following attribute:
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><code>selection</code></td>
+    <td>Object</td>
+    <td>Data associated with the selected tree node/leaf</td>
+    </tr>
+</table>
+
+## Sample code
+<p>The following example displays a tree containing accounts and their contacts.
+Data is loaded by the <code>doInit</code> controller method (not shown) and stored in the <code>treeItems</code> attribute.
+Tree selection is captured by the <code>TreeSelectionEvent</code> event and handled by the <code>handleTreeSelection</code> controller method (not shown).</p>
+
+<pre>&lt;aura:attribute name="treeHeader" type="String" default="Accounts &amp; Contacts"/&gt;
+&lt;aura:attribute name="treeItems" type="List"/&gt;
+&lt;aura:attribute name="treeConfig" type="Map" default="{'labelProperties': ['Name'], 'expandProperties': ['Contacts'], 'isSelectable': true, 'isNodeSelectionEnabled': true, 'expandLevel': 1}" /&gt;
+
+&lt;aura:handler name="init" value="{!this}" action="{!c.doInit}" /&gt;
+&lt;aura:handler name="treeSelectionEvent" event="c:TreeSelectionEvent" action="{!c.handleTreeSelection}"/&gt;
+ 
+&lt;ui_tree:Tree header="{!v.treeHeader}" items="{!v.treeItems}" config="{!v.treeConfig}" /&gt;</pre>
