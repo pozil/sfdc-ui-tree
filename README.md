@@ -26,7 +26,7 @@ The Lightning Tree component provides the following features:
 ## Install
 Install the Lightning Tree component as a managed package by clicking on this button:
 
-<a href="https://login.salesforce.com/packaging/installPackage.apexp?p0=04t0Y0000005TfC">
+<a href="https://login.salesforce.com/packaging/installPackage.apexp?p0=04t0Y0000005UGg">
   <img src="gfx/btn-install.png" width="100" alt="Install">
 </a>
 
