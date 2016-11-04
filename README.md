@@ -1,16 +1,12 @@
-<a href="https://login.salesforce.com/packaging/installPackage.apexp?p0=04t0Y000000Pi6b">
-  <img src="gfx/btn-install.png" width="100" alt="Install">
-</a>
-
 # Salesforce Lightning Tree Component
 
 **Table of Content**
 - [About](#about)
-- [Features](#features)
+- [Install](#install)
 - [Documentation](#documentation)
   - ui_tree:Tree
   - ui_tree:TreeSelectionEvent
-- [Sample application & code](#examples)
+- [Sample application & code](#sample-application--code)
 
 <img src="screenshots/example-app.png" width="300" align="right"/>
 
@@ -18,12 +14,20 @@
 This is a generic tree component built using Salesforce Lightning.<br/>
 This component is built with [SLDS](https://www.lightningdesignsystem.com/) style and does not rely on third party libraries.
 
-## Features
+* Features
 The Lightning Tree component provides the following features:
 - multi-level tree (not limited to a single level)
 - selectable nodes/leaves handled by a lightning event
 - configurable expansion/label properties that allow to represent any type of objects
 - configurable default expansion level
+
+
+## Install
+Install the Lightning Tree component as a managed package by clicking on this button:
+
+<a href="https://login.salesforce.com/packaging/installPackage.apexp?p0=04t0Y000000Pi6b">
+  <img src="gfx/btn-install.png" width="100" alt="Install">
+</a>
 
 ## Documentation
 
