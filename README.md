@@ -32,6 +32,12 @@ Install the Lightning Tree component as a managed package by clicking on this bu
 
 ## Documentation
 
+Component is documented using the Aura documentation.
+You can access it from this URL (replace the domain):
+https://<b>&lt;YOUR_DOMAIN&gt;</b>.lightning.force.com/auradocs/reference.app#reference?descriptor=ui_tree:Tree&defType=component
+
+You can also find the documentation below.
+
 ### ui_tree:Tree
 The Lightning Tree component is invoked as a <code>ui_tree:Tree</code> component with the following attributes:
 <table>
@@ -101,7 +107,7 @@ The Lightning Tree component is invoked as a <code>ui_tree:Tree</code> component
     </tr>
 </table>
 
-## ui_tree:TreeSelectionEvent
+### ui_tree:TreeSelectionEvent
 When selection is allowed by the <code>config</code> attribute of the <code>ui_tree:Tree</code> component, a <code>ui_tree:TreeSelectionEvent</code> Lightning event will be thrown when the user selects a tree node or leaf.
 The event has the following attribute:
 <table>
