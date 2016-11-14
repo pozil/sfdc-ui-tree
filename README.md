@@ -17,7 +17,7 @@ This component is built with [SLDS](https://www.lightningdesignsystem.com/) styl
 <b>Features</b>
 
 The Lightning Tree component provides the following features:
-- multi-level tree
+- mobile-friendly multi-level tree
 - selectable nodes/leaves handled by a lightning event
 - configurable expansion/label properties that allow to represent any type of objects
 - configurable default expansion level
