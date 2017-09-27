@@ -1,5 +1,9 @@
 # Salesforce Lightning Tree Component
 
+<div><b>WARNING:</b> this tree component will be soon be deprectated.<br/>
+It wil be replaced by the official built-in <a href="https://developer.salesforce.com/docs/atlas.en-us.210.0.lightning.meta/lightning/aura_compref_lightning_tree.htm">lightning:tree</a> component in Winter '18 (Safe Harbor)</div>
+
+
 **Table of Content**
 - [About](#about)
 - [Install](#install)
